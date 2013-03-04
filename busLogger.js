@@ -34,7 +34,7 @@ var updateLocation = function (response) {
 };
 
 var getBusLocations = function (buses) {
-    console.log("Getting bus locations");
+    //console.log("Getting bus locations");
     for (var i = 0; i < buses.length; i++) {
         http.get("http://www.uml.edu/api/Transportation/BusLocation/" + buses[i],
                  updateLocation).on('error', function(e) {
@@ -51,7 +51,7 @@ var getBuses = function (response) {
     });
 
     response.on('end', function() {
-        console.log("Getting buses");
+        //console.log("Getting buses");
         var buses = [];
         var response = JSON.parse(data);
 
@@ -61,7 +61,7 @@ var getBuses = function (response) {
             }
         }
 
-        console.log(buses);
+        //console.log(buses);
 
         getBusLocations(buses);
     });
